@@ -1,7 +1,7 @@
 # Echo client program
 import socket
 
-HOST = ''    # The remote host
+HOST = '172.24.13.177'    # The remote host
 PORT = 50007              # The same port as used by the server
 
 estring = input("-> ")

@@ -8,6 +8,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(QUEUELEN)
 
+print("program started")
 while 1:
     conn, addr = s.accept()  # blocks here
     print('Connected by', addr)
