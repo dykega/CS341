@@ -8,7 +8,7 @@ s.bind((host, port))
 
 while True:
     try:
-        message, address = s.recvfrom(8192)
+        message, address = s.recvfrom(8192) # blocks here, 8192 is how much data per block
         print("Got data from", address)
         # Acknowledge it.
         message = message.decode('utf8')

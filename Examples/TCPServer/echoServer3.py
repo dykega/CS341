@@ -1,5 +1,6 @@
 # Echo server program
 import socket
+import time
 
 HOST = ''                 # Symbolic name meaning the local host
 PORT = 50007              # Arbitrary non-privileged port
@@ -9,12 +10,25 @@ s.bind((HOST, PORT))
 s.listen(QUEUELEN)
 
 print("program started")
-while 1:
-    conn, addr = s.accept()  # blocks here
-    print('Connected by', addr)
-    data = conn.recv(1024)
-    strdata = data.decode('utf8')  # decode needed in Python3
-    if not data: break
-    data = strdata.upper().encode('utf8')  # encode needed in Python3
-    conn.send(data)
-    conn.close()
+conn, addr = s.accept()  # blocks here
+print("Connected to by",addr)
+data = conn.recv(1024)
+numData = data.decode('utf8')
+numData = int(numData)
+
+msg = str(numData)
+conn.send(msg.encode('utf8'))
+
+dataLst = [None] * numData
+for num in range(numData):
+    dataLst[num] = conn.recv(1024)
+
+for data in dataLst:
+    intData = data.decode('utf8')
+    intData = int(data)
+    intData = intData ** 2
+    strData = str(intData)
+    time.sleep(.1)
+    conn.send(strData.encode('utf8'))
+    
+conn.close()
