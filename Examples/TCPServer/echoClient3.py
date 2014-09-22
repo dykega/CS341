@@ -45,7 +45,7 @@ def toInts(bytArr):
     return lst
 
 
-HOST = '10.24.44.181'# address of remote host
+HOST = '10.24.44.181'     # address of remote host
 PORT = 50007              # The same port as used by the server
 
 print("Enter numbers line by line and enter stop to finish")
