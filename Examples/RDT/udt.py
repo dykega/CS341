@@ -13,7 +13,7 @@ CORRUPT_P = 0.3
 # Probability of a message getting lost
 LOST_P = 0.1
 
-TIMEOUT = 3
+TIMEOUT = 6
 
 DEBUG = True
 
